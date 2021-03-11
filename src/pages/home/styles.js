@@ -7,25 +7,31 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 800px;
 
     input {
         margin-top: 120px;
-        width: 100%;
+        width: 80%;
         height: 50px;
         padding: 0px 25px;
         border-radius: 25px;
         border: 0px;
         outline: none;
         box-sizing: border-box;
+        font-size: 16px;
+        text-align: center;
     }
 `;
 
 export const AnimesContainer = styled.div`
     width: 100%;
+    margin-top: 22px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 `;
 
 export const AnimeCard = styled.div`

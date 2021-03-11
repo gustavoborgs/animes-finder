@@ -21,7 +21,7 @@ function index() {
   return (
     <Container>
       <Content>
-        <input type="text" placeholder="Procure um anime pelo nome" onKeyUp={(e) => {
+        <input type="text" placeholder="Digite o nome de um anime" onKeyUp={(e) => {
           if(e.key === 'Enter') {
             handleFind()
           }
