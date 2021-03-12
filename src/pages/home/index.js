@@ -5,30 +5,32 @@ import { Container, Content, AnimeCard, AnimesContainer } from './styles';
 
 function index() {
   const [animes, setAnimes] = useState([]);
-
-  useEffect(() => {
-    handleFind();
-  }, []);
+  const [find, setFind] = useState('');
 
   function handleFind() {
-    axios.get('https://api.jikan.moe/v3/search/anime?q=naruto').then(response => {
+    axios.get(`https://api.jikan.moe/v3/search/anime?q=${find}`).then(response => {
+      console.log(find);
       const data = response.data;
       setAnimes(data.results);
-      // console.log(data.results);
     })
   }
 
   return (
     <Container>
       <Content>
-        <input type="text" placeholder="Digite o nome de um anime" onKeyUp={(e) => {
+        <input 
+        type="text" 
+        placeholder="Digite o nome de um anime" 
+        value={find}
+        onChange={e => setFind(e.target.value)}
+        onKeyUp={(e) => {
           if(e.key === 'Enter') {
             handleFind()
           }
         }} />
 
         <AnimesContainer>
-          {animes.map(value => (
+          {animes.length > 0 && animes.map(value => (
             <AnimeCard key={value.mal_id}>
               <img src={value.image_url}/>
               <div>
