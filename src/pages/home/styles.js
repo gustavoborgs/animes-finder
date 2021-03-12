@@ -22,9 +22,19 @@ export const Content = styled.div`
         border: 0px;
         outline: none;
         box-sizing: border-box;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+        &:focus::-webkit-input-placeholder 
+        {
+            color: transparent;
+        }
     }
+`;
+
+export const BannerImage = styled.img`
+    width: 70vw;
 `;
 
 export const AnimesContainer = styled.div`
@@ -40,6 +50,12 @@ export const AnimeCard = styled.div`
     margin: 8px;
     border-radius: 8px;
     background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
 
     img {
         border-radius: 8px 8px 0px 0px;

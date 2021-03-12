@@ -1,7 +1,8 @@
 import {React, useState, useEffect } from 'react';
 import axios from 'axios';
+import banner from './banner.png'
 
-import { Container, Content, AnimeCard, AnimesContainer } from './styles';
+import { Container, Content, AnimeCard, AnimesContainer, BannerImage } from './styles';
 
 function index() {
   const [animes, setAnimes] = useState([]);
@@ -20,7 +21,7 @@ function index() {
       <Content>
         <input 
         type="text" 
-        placeholder="Digite o nome de um anime" 
+        placeholder="Pesquise pelo seu anime favorito" 
         value={find}
         onChange={e => setFind(e.target.value)}
         onKeyUp={(e) => {
@@ -30,7 +31,7 @@ function index() {
         }} />
 
         <AnimesContainer>
-          {animes.length > 0 && animes.map(value => (
+          {animes.length > 0 ? animes.map(value => (
             <AnimeCard key={value.mal_id}>
               <img src={value.image_url}/>
               <div>
@@ -38,7 +39,10 @@ function index() {
                 <p>{value.synopsis}</p>
               </div>
             </AnimeCard>
-          )) }
+          )) : 
+          
+            <BannerImage src={banner}/>
+          }
         </AnimesContainer>
       </Content>
     </Container>
